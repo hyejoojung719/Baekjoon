@@ -7,7 +7,7 @@ public class Ex02 {
 		int a;
 		int b;
 		
-		//hashNextInt 이용!!
+		//hashNextInt 이용!
 		while(sc.hasNextInt()) {
 			
 			a = sc.nextInt();
