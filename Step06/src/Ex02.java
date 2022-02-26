@@ -1,7 +1,6 @@
 
 public class Ex02 {
 	
-	// ¾î·Æ´ç..
 	public static int d(int n) {
 		
 		int sum = n;
