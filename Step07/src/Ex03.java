@@ -12,7 +12,7 @@ public class Ex03 {
 			chArr[i-97] = i;
 		}
 		
-		//apple
+		
 		for(int i=0; i<chArr.length; i++) {
 			for(int j=0; j<str.length(); j++) {
 				if((char)chArr[i] == str.charAt(j)) {
