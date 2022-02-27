@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Ex03 {
 	
-	//1~99, 111 123 135 147 159 210
 	public static int hansu(int n) {
 		
 		int count = 0; // 한수 개수
