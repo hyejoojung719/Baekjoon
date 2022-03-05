@@ -8,7 +8,7 @@ public class Ex01 {
 		int b = Integer.parseInt(sc.next());
 		int c = Integer.parseInt(sc.next());
 		
-		if(c-b < 0) {
+		if(c-b <= 0) {
 			System.out.println("-1");
 		}else {
 			System.out.println((a/(c-b))+1);
