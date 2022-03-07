@@ -15,7 +15,7 @@ public class Ex04 {
 		int b = Integer.parseInt(st.nextToken());
 		int v = Integer.parseInt(st.nextToken());
 		
-		// 반복문 쓰면 무조건 시간초과 뜸...
+		// 반복문 쓰면 무조건 시간초과 뜸....
 		/*
 		int i=1;
 		while(true) {
