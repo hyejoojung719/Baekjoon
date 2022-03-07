@@ -15,18 +15,24 @@ public class Ex04 {
 		int b = Integer.parseInt(st.nextToken());
 		int v = Integer.parseInt(st.nextToken());
 		
+		// 반복문 쓰면 무조건 시간초과 뜸...;;
+		/*
 		int i=1;
 		while(true) {
 			if( i-1+a >= v) {
 				break;
-			}else if( i-1+a-b >= v){
-				break;
 			}else {
 				i++;
 			}
+		}*/
+		
+		int day = (v-b)/(a-b);
+		if((v-b)%(a-b)==0) {
+			bw.write(day +"\n");
+		}else {
+			bw.write((day+1) +"\n");
 		}
 		
-		bw.write(i + "\n");
 		br.close();
 		bw.flush();
 		bw.close();
