@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Ex05 {
 	
 	public static ArrayList<Integer> cnt = new ArrayList<>();
