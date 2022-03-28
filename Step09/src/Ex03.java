@@ -35,7 +35,7 @@ public class Ex03 {
 			for(int j=0; j<3; j++) {
 				if(i==1&&j==1) continue;
 				
-				star(a+(N/3)*i, b+(N/3)*j, N/3); // 시작점 옮기며 호출
+				star(a+(N/3)*i, b+(N/3)*j, N/3); // 시작점 옮기며 호출 
 			}
 		}
 	}
