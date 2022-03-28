@@ -1,65 +1,48 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
-// 브루트포스 알고리즘 
-// 일일이 첨부터 끝까지 계산하며 답을 찾는 알고리즘
-// 문제는 숫자가 커질 수록 시간 복잡도가 커진다...
-// 브루트포흐 종류 (자료구조에 따라 2종류로 나뉨)
-// 1. 선형 구조 - 순차탐색
-// 2. 비선형구조 - BFS, DFS
+// 수 정렬
+// 1. 선택 정렬 
+// 	- 최소 선택 정렬 : 오름차순 
+//  - 최대 선택 정렬 : 내림차순
+//  - (1) 인덱스 맨 앞 부터, 이후이 배열값 중 가장 작은 값 찾기
+//  - (2) 가장 작 은 값 찾으면, 그 값을 현재 인덱스 값과 바꿔줌
+//  - (3) 다음 인덱스에서 위 과정 반복
+// 2. 삽입 정렬
+//  - 현재 위치에서 그 이하의 배열들을 비교하여 자신이 들어갈 위치를 찾아, 그 위치에 삽입하는 배열 알고리즘
+// 3. 버블 정렬
+//  - 연속된 두 개 인덱스를 비교하여, 오름차순의 경우 큰 값이 뒤로 이동함.. 
+// 4. 합병 정렬 
+// 5. 퀵 정렬
+
+// 이번에는 선택정렬로 풀기
 public class Ex01 {
-	
-	
-	public static int sum(int[] arr, int N, int M) {
-		int result = 0;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
-		for(int i=0; i<N-2; i++) {
-			for(int j=i+1; j<N-1; j++) {
-				for(int k=j+1; k<N; k++) {
-					int sum = arr[i] + arr[j] + arr[k];
-					
-					if(sum == M) {
-						return sum;
-					}
-					
-					if(result < sum && sum < M) {
-						result = sum;
-					}
+		int testCase = sc.nextInt();
+		int[] arr = new int[testCase];
+		
+		for(int i=0; i<testCase; i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		int min;
+		int temp;
+		for(int i=0; i<arr.length-1; i++) {
+			min=i;
+			for(int j=i+1; j<arr.length; j++) {
+				if(arr[min] > arr[j]) {
+					min=j;
 				}
 			}
+			temp = arr[min];
+			arr[min] = arr[i];
+			arr[i] = temp;
 		}
 		
-		return result;
-	}
-	
-	public static void main(String[] args) throws Exception {
-		// 블랙젝
-		// 카드의 합이 M을 넘지 않는 한도 내에서 
-		// N장의 카드 중에 3장의 카드를 골라
-		// M을 넘지 않으며 M과 최대한 가깝게 만든다. 
-		
-		// 카드의 개수 M과 합 N을 입력받음.
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st1 = new StringTokenizer(br.readLine(), " ");
-		StringTokenizer st2 = new StringTokenizer(br.readLine(), " ");
-		
-		int N = Integer.parseInt(st1.nextToken());
-		int M = Integer.parseInt(st1.nextToken());
-		
-		int[] arr = new int[N];
-		
-		for(int i=0; i<N; i++) {
-			arr[i] = Integer.parseInt(st2.nextToken());
+		for(int i=0; i<arr.length; i++) {
+			System.out.println(arr[i]);
 		}
-		
-		System.out.println(sum(arr, N, M));
-		
 		
 	}
 }

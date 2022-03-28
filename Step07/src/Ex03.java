@@ -4,32 +4,58 @@ public class Ex03 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		String str = sc.nextLine();
+		int nth = sc.nextInt();
 		
-		//97~122
-		int[] chArr = new int[26];
-		for(int i=97; i<=122; i++) {
-			chArr[i-97] = i;
-		}
-		
-		
-		for(int i=0; i<chArr.length; i++) {
-			for(int j=0; j<str.length(); j++) {
-				if((char)chArr[i] == str.charAt(j)) {
-					chArr[i]=j;
-					break;
-				}else if((j+1) == str.length()) {
-					chArr[i]=-1;
-					break;
-				}
+		int a1 = 1;
+		int n=1;
+		int an;
+		int prean;
+		while(true) {
+			
+			int sum=0;
+			for(int k=1; k <= n-1; k++) {
+				sum += k;
 			}
+			an = a1 + sum;
+			
+			int presum=0;
+			for(int k=1; k <= n-2; k++) {
+				presum += k;
+			}
+			prean = a1 + presum;
+			
+			if(nth < an && nth >= prean) {
+				break;
+			}else {
+				n++;
+			}
+			
 		}
 		
+		//n-1 
+		//A+B : n
+		//홀수 : 분자는 n-1부터 시작 / 분모는 1부터 시작
+		//짝수 : 분자는 1부터 시작 / 분모는 n-1부터 시작
+		//nth가 제시되면
+		//n-1번쨰 그룹에서 nth-prean+1 번째에 해당하는 분수를 출력한다
 		
-		
-		for(int i=0; i<chArr.length; i++) {
-			System.out.print(chArr[i] + " ");
+		int A = 1; // 분모
+		int B = 1; // 분자
+		if((n-1)%2 != 0 ) {
+			// 홀수 일 때
+			int k = nth-prean+1; // 그룹내에서 몇 번째인지..
+			B = k;
+			A = n-1-(k-1);
+			
+		}else {
+			// 짝수 일 때
+			int k = nth-prean+1;
+			B = n-1-(k-1);
+			A = k;
 		}
+		
+		System.out.println(A + "/" + B);
+		
 		
 	}
 }

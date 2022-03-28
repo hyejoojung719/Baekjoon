@@ -1,41 +1,27 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
+//에라토스테네스의 체
 public class Ex04 {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
-		int a = Integer.parseInt(st.nextToken());
-		int b = Integer.parseInt(st.nextToken());
-		int v = Integer.parseInt(st.nextToken());
+		int m = sc.nextInt();
+		int n = sc.nextInt();
 		
-		// 반복문 쓰면 무조건 시간초과 뜸.
-		/*
-		int i=1;
-		while(true) {
-			if( i-1+a >= v) {
-				break;
-			}else {
-				i++;
-			}
-		}*/
+		boolean[] prime = new boolean[n+1];
 		
-		int day = (v-b)/(a-b);
-		if((v-b)%(a-b)==0) {
-			bw.write(day +"\n");
-		}else {
-			bw.write((day+1) +"\n");
+		prime[0] = prime[1] = true;
+		
+		
+		
+		for(int i=2; i*i<=n; i++) {
+			for(int j=i*i; j<=n; j+=i) prime[j] = true;
 		}
 		
-		br.close();
-		bw.flush();
-		bw.close();
-		
+		for(int i=m; i<=n; i++) {
+			if(!prime[i]) {
+				System.out.println(i);
+			}
+		}
 	}
 }

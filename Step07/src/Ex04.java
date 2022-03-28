@@ -6,28 +6,36 @@ import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Ex04 {
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st;
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
-		int testCase = Integer.parseInt(br.readLine());
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		int v = Integer.parseInt(st.nextToken());
 		
-		String[] strArr = new String[testCase];
-		int[] cntArr = new int[testCase];
-		for(int i=0; i<testCase; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
-			cntArr[i] = Integer.parseInt(st.nextToken());
-			strArr[i] = st.nextToken();
-		}
-		
-		for(int i=0; i<testCase; i++) {
-			for(int j=0; j<strArr[i].length();j++) {
-				for(int k=0; k < cntArr[i];k++) {
-					System.out.print(strArr[i].charAt(j));
-				}
+		// 반복문 쓰면 무조건 시간초과 뜸.
+		/*
+		int i=1;
+		while(true) {
+			if( i-1+a >= v) {
+				break;
+			}else {
+				i++;
 			}
-			System.out.println();
+		}*/
+		
+		int day = (v-b)/(a-b);
+		if((v-b)%(a-b)==0) {
+			bw.write(day +"\n");
+		}else {
+			bw.write((day+1) +"\n");
 		}
+		
+		br.close();
+		bw.flush();
+		bw.close();
+		
 	}
 }

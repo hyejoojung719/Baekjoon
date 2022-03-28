@@ -1,27 +1,40 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Ex07 {
-	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int kg = sc.nextInt();
+		int big = 0;
+		int small = 0;
 		
-		int num1 = Integer.parseInt(st.nextToken());
-		int num2 = Integer.parseInt(st.nextToken());
+		// 3kg 5kg
 		
-		int newNum1 = num1%10*100 + num1/10%10*10 + num1/100;
-		int newNum2 = num2%10*100 + num2/10%10*10 + num2/100;
-		
-		if(newNum1 > newNum2) {
-			System.out.println(newNum1);
+		if(kg%5%3 != 0) {
+			
+			for(int i=kg/5; i>=0 ;i--) {
+				int a = kg-5*i;
+				
+				if(a%3 != 0) {
+					continue;
+				}else {
+					big = i;
+					small = a/3;
+					break;
+				}
+			}
+			
+			if(big==0 && small==0) {
+				System.out.println(-1);
+			}else {
+				System.out.println(big+small);
+			}
 		}else {
-			System.out.println(newNum2);
+			big = kg/5;
+			small = kg%5/3;
+			System.out.println(big+small);
 		}
+		
 		
 	}
 }

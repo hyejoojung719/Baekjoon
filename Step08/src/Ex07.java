@@ -1,40 +1,32 @@
 import java.util.Scanner;
 
+// 직사각형에서의 탈출 
 public class Ex07 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int kg = sc.nextInt();
-		int big = 0;
-		int small = 0;
+		// x, y, w, h 입력 받음
+		// 직사각형의 가로 : w
+		// 직사각형의 세로 : h
+		// 직선으로 가는게 최단 거리
+		// x, y, w-x, h-y 중 가장 작은 수 찾기
 		
-		// 3kg 5kg
+		int[] arr = new int[4];
+		arr[0] = sc.nextInt();
+		arr[1] = sc.nextInt();
+		arr[2] = sc.nextInt()-arr[0];
+		arr[3] = sc.nextInt()-arr[1];
 		
-		if(kg%5%3 != 0) {
-			
-			for(int i=kg/5; i>=0 ;i--) {
-				int a = kg-5*i;
-				
-				if(a%3 != 0) {
-					continue;
-				}else {
-					big = i;
-					small = a/3;
-					break;
-				}
+		int min = arr[0];
+		for(int i=0; i<arr.length; i++) {
+			if(min > arr[i]) {
+				min = arr[i];
 			}
 			
-			if(big==0 && small==0) {
-				System.out.println(-1);
-			}else {
-				System.out.println(big+small);
+			if(i == arr.length-1) {
+				System.out.println(min);
 			}
-		}else {
-			big = kg/5;
-			small = kg%5/3;
-			System.out.println(big+small);
 		}
-		
 		
 	}
 }

@@ -1,32 +1,34 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
-// 분해합
-// 브루트포스 알고리즘
+// 수 정렬2
+// 여기서는 내장 함수 사용
+// 시간초과 안 뜨게 하는 법??
 public class Ex02 {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		Scanner sc = new Scanner(System.in);
+		int testCase = Integer.parseInt(br.readLine());
+		int[] arr = new int[testCase];
 		
-		int N = sc.nextInt();
-		
-		// N = 216보다 작은숫자중 M + M의 각 자릿수합
-		
-		for(int i=1; i<=N; i++) {
-			int sum = i;
-			int tmp = i;
-			while(tmp != 0) {
-				sum += tmp%10;
-				tmp = tmp/10;
-			}
-			
-			if(sum == N) {
-				System.out.println(i);
-				break;
-			}
-			
-			if(i == N) {
-				System.out.println(0);
-			}
+		for(int i=0; i<arr.length; i++) {
+			arr[i] = Integer.parseInt(br.readLine());
 		}
+		
+		Arrays.sort(arr);
+		
+		for(int i=0; i<arr.length; i++) {
+			bw.write(arr[i] + "\n");
+		}
+		
+		br.close();
+		bw.flush();
+		bw.close();
 	}
+	
 }

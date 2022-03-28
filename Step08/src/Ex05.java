@@ -1,52 +1,44 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Ex05 {
-	public static void main(String[] args) throws Exception{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st;
-		
-		int testCase = Integer.parseInt(br.readLine());
-		
-		int[][]  arr = new int[testCase][3]; 
-		
-		for(int i=0; i<testCase; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
-			int H = Integer.parseInt(st.nextToken());
-			int W = Integer.parseInt(st.nextToken());
-			int N = Integer.parseInt(st.nextToken());
-			
-			arr[i][0] = H;
-			arr[i][1] = W;
-			arr[i][2] = N;
-		}
-		
-		for(int i=0; i<testCase; i++) {
-			int HH;
-			int WW;
-			if(arr[i][2]%arr[i][0] != 0) {
-				HH = arr[i][2]%arr[i][0];
-				WW = arr[i][2]/arr[i][0]+1;
-			}else {
-				HH = arr[i][0];
-				WW = arr[i][2]/arr[i][0];
-			}
-			
-			if(WW < 10) {
-				bw.write(HH+"0"+WW+ "\n");
-			}else {
-				bw.write(HH+""+WW+ "\n");
-			}
-		}
-		
-		br.close();
-		bw.flush();
-		bw.close();
 	
+	public static ArrayList<Integer> cnt = new ArrayList<>();
+	public static boolean[] prime;
+	public static void get_prime(int num) {
+		prime = new boolean[2*num+1];
 		
+		prime[0] = prime[1] = true;
+		
+		for(int i=2; i*i <= 2*num; i++) {
+			for(int j=2*i ; j<=2*num; j+=i) prime[j] = true;
+		}
+		
+		int count=0;
+		for(int i=num+1; i<=2*num; i++) {
+			if(!prime[i]) {
+				count++;
+			}
+		}
+		cnt.add(count);
+	}
+	
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		
+		while(true) {
+			int num = sc.nextInt();
+			if(num==0) {
+				break;
+			}
+			get_prime(num);
+		}
+		
+		for(int i=0; i<cnt.size(); i++) {
+			System.out.println(cnt.get(i));
+		}
 	}
 }

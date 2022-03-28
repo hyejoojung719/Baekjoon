@@ -1,43 +1,35 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ex03 {
-	
-	public static int hansu(int n) {
-		
-		int count = 0; // 한수 개수
-		
-		for(int i=1;i<=n;i++) {
-			if(i>=1 && i<100) {
-				count++;
-			}else if(i>=100 && i<1000) {
-				int first = i%10;
-				int second = (i/10)%10;
-				int third = (i/100)%10;
-				
-				if(second-first == third-second) {
-					count++;
-				}
-				
-			}else {
-				int first = i%10;
-				int second = (i/10)%10;
-				int third = (i/100)%10;
-				int forth = (i/1000)%10;
-				
-				if((second-first == third-second) && (third-second == forth-third)) {
-					count++;
-				}
-			}
-		}
-		return count;
-	}
-	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		System.out.println(hansu(n));
+		String str = sc.nextLine();
+		
+		//97~122
+		int[] chArr = new int[26];
+		for(int i=97; i<=122; i++) {
+			chArr[i-97] = i;
+		}
+		
+		
+		for(int i=0; i<chArr.length; i++) {
+			for(int j=0; j<str.length(); j++) {
+				if((char)chArr[i] == str.charAt(j)) {
+					chArr[i]=j;
+					break;
+				}else if((j+1) == str.length()) {
+					chArr[i]=-1;
+					break;
+				}
+			}
+		}
+		
+		
+		
+		for(int i=0; i<chArr.length; i++) {
+			System.out.print(chArr[i] + " ");
+		}
+		
 	}
-	
 }

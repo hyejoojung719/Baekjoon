@@ -1,36 +1,23 @@
+import java.util.Scanner;
+
 
 public class Ex02 {
-	
-	public static int d(int n) {
-		
-		int sum = n;
-		
-		while(n!=0) {
-			sum = sum + n%10;
-			n = n/10;
-		}
-		
-		return sum;
-	}
-	
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
-		int[] arr = new int[10000];
-		for(int i = 0 ; i < arr.length; i++) {
-			arr[i] = d(i+1);
+		int size = Integer.parseInt(sc.nextLine());
+		
+		String str = sc.nextLine();
+	
+		char[] arr = new char[size];
+		for(int i=0; i<str.length(); i++) {
+			arr[i] = str.charAt(i);
 		}
 		
-		for(int i= 1; i<=10000; i++) {
-			
-			int count=0;
-			for(int j=0 ; j<arr.length; j++){
-				if(i != arr[j]) {
-					count++;
-				}
-				if(count == 10000) {
-					System.out.println(i);
-				}
-			}
+		int sum=0;
+		for(int i=0; i<arr.length; i++) {
+			sum += ((int)arr[i]-48);
 		}
+		System.out.println(sum);
 	}
 }

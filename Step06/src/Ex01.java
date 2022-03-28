@@ -1,27 +1,12 @@
 import java.util.Scanner;
 
+// 아스키코드
 public class Ex01 {
-	
-	public static long sum(int[] a ) {
-		
-		long ans=0;
-		for(int i=0;i<a.length;i++) {
-			ans += a[i];
-		}
-		return ans;
-	}
-	
 	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		int[] a = new int[n];
+		char ch = sc.next().charAt(0);
 		
-		for(int i=0;i<n;i++) {
-			a[i] = sc.nextInt();
-		}
-		
-		System.out.println(sum(a));
+		System.out.println((int)ch);
 	}
 }

@@ -1,61 +1,52 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Ex05 {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
 		
-		String str = sc.nextLine();
-		char[] chArr = new char[str.length()];
+		int testCase = Integer.parseInt(br.readLine());
 		
-		for(int i=0; i<chArr.length; i++) {
-			if(((int)str.charAt(i) >= 65) && ((int)str.charAt(i) <= 90)) {
-				chArr[i] = (char)((int)str.charAt(i)+32);
+		int[][]  arr = new int[testCase][3]; 
+		
+		for(int i=0; i<testCase; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			int H = Integer.parseInt(st.nextToken());
+			int W = Integer.parseInt(st.nextToken());
+			int N = Integer.parseInt(st.nextToken());
+			
+			arr[i][0] = H;
+			arr[i][1] = W;
+			arr[i][2] = N;
+		}
+		
+		for(int i=0; i<testCase; i++) {
+			int HH;
+			int WW;
+			if(arr[i][2]%arr[i][0] != 0) {
+				HH = arr[i][2]%arr[i][0];
+				WW = arr[i][2]/arr[i][0]+1;
 			}else {
-				chArr[i] = str.charAt(i);
-			}
-		}
-		
-		int[] cntArr = new int[26];
-		for(int i=0; i<chArr.length; i++) {
-			cntArr[(int)chArr[i]-97]++;
-		}
-	
-		int max = cntArr[0];
-		int idx = 0;
-		if(str.length() == 1) {
-			for(int i=0; i<cntArr.length; i++) {
-				if(cntArr[i] != 0) {
-					max = cntArr[i];
-					idx = i;
-				}
+				HH = arr[i][0];
+				WW = arr[i][2]/arr[i][0];
 			}
 			
-		}else {
-			for(int i=0; i<cntArr.length-1; i++) {
-				if(max < cntArr[i+1]) {
-					max = cntArr[i+1];
-					idx = i+1;
-				}
+			if(WW < 10) {
+				bw.write(HH+"0"+WW+ "\n");
+			}else {
+				bw.write(HH+""+WW+ "\n");
 			}
 		}
 		
-		int dupl = 0;
-		for(int i=0; i<cntArr.length; i++) {
-			if(max == cntArr[i]) {
-				dupl++;
-			}
-		}
-		
-		for(int i=0; i<cntArr.length; i++) {
-			if(dupl > 1) {
-				System.out.println("?");
-				break;
-			}
-			else {
-				System.out.println((char)(idx+65));
-				break;
-			}
-		}
+		br.close();
+		bw.flush();
+		bw.close();
+	
 		
 	}
 }
