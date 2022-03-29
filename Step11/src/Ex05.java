@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
-// 소트 인사이드
+// BOJ 1427 소트 인사이드
 // 배열 내림차순 정렬
 public class Ex05 {
 	public static void main(String[] args) {
