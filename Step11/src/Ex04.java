@@ -29,7 +29,7 @@ public class Ex04 {
 		//1. 산술평균
 		double sum=0; // N으로 나눴을 때 소수점이 나와야하므로 double로 선언
 		for(int i=0; i<data.length; i++) {
-			sum += data[i];
+			sum += data[i]; // 합을 따로 안 빼고 위에 데이터 입력받을 때 추가하는 방법도 있다. 
 		}
 		bw.write(Math.round(sum/N) + "\n"); // 반올림함수 Math.round이용
 		
