@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
+//BOJ 2108 통계학 
 public class Ex04 {
 	public static void main(String[] args) throws Exception{
 		// N은 홀수만 가능하다. 
