@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-// 좌표 정렬하기
+// BOJ 11650 좌표 정렬하기
 public class Ex06 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,7 +22,6 @@ public class Ex06 {
 			arr[i][1] = Integer.parseInt(st.nextToken());
 		}
 		
-		// 내장함수를 이용해 2차원 배열 정렬하기
 		Arrays.sort(arr, (o1,o2) -> {
 			if(o1[0] == o2[0]) { // 0번째 원소가 같다면
 				return Integer.compare(o1[1], o2[1]); //1번째 원소로..
@@ -30,6 +29,29 @@ public class Ex06 {
 				return Integer.compare(o1[0], o2[0]);
 			}
 		});
+		
+		// 다른풀이
+		/*Arrays.sort(arr, (e1, e2) -> {
+			if(e1[0] == e2[0]) {
+				return e1[1] - e2[1];
+			} else {
+				return e1[0] - e2[0];
+			}
+		});
+		
+		 위 익명함수(람다식)을 아래처럼 풀 수도 있다.
+		 Arrays.sort(arr, new Comparator<int[]>() {		
+			@Override
+			public int compare(int[] e1, int[] e2) {
+				if(e1[0] == e2[0]) {		// 첫번째 원소가 같다면 두 번째 원소끼리 비교
+					return e1[1] - e2[1];
+				}
+				else {
+					return e1[0] - e2[0];
+				}
+			}
+		});
+		*/
 		
 		for(int i=0; i<N; i++) {
 			bw.write(arr[i][0] + " " + arr[i][1] + "\n");
