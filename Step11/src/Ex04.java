@@ -53,7 +53,7 @@ public class Ex04 {
 				max = cnt[i];
 			}
 		}
-		// max는 cnt배열중 최대값을 뜻 함.
+		// max는 cnt배열중 최대값을 뜻 함. 
 		
 		int flag = 0; // 중복 체크
 		int check = 0; // max값과 같은 값을 갖는 곳의 index 저장
