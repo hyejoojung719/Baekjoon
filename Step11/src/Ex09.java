@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-//BOJ 10814 나이순정렬
+//BOJ 10814 나이순정렬 
 public class Ex09 {
 	public static void main(String[] args) throws Exception{
 		// 1. 나이 오름차순
