@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Comparator;
-
+ 
 //BOJ 1181 단어정렬 -> 내 코드는 너무 더러워져서,, 결국 해답 참고
 public class Ex08 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
