@@ -25,8 +25,10 @@ public class Ex07 {
 		Arrays.sort(arr, (o1, o2) ->{
 			if(o1[1] == o2[1]) {
 				return Integer.compare(o1[0], o2[0]);
+				// return o1[1] - o2[1]
 			}else {
 				return Integer.compare(o1[1], o2[1]);
+				// return o1[1] - o1[2]
 			}
 		});
 		
