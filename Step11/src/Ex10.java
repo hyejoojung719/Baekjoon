@@ -29,10 +29,10 @@ public class Ex10 {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		for(int i=0; i<cnt.length; i++) {
-			sb.append(cnt[i]).append(' ');
-		}
-		
+//		for(int i=0; i<cnt.length; i++) {
+//			sb.append(cnt[i]).append(' ');
+//		}
+//		
 		System.out.println(sb);
 		
 		br.close();
