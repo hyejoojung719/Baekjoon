@@ -10,7 +10,7 @@ public class BOJ10817 {
 		int a = Integer.parseInt(st.nextToken());
 		int b = Integer.parseInt(st.nextToken());
 		int c = Integer.parseInt(st.nextToken());
-		
+		 
 		// 두 번째로 큰 정수 출력
 		if((a>=b && a<=c) || (a>=c && a<=b)) {
 			System.out.println(a);
