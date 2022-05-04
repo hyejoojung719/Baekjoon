@@ -13,7 +13,7 @@ public class BOJ2635 {
 		
 		ArrayList<Integer> list = new ArrayList<>();
 		
-		// 여기서 핵심은 두번쨰 양의 정수는 무조건 start 수보다 작아야함.. 
+		// 여기서 핵심은 두번째 양의 정수는 무조건 start 수보다 작아야함.. 
 		for(int i=input; i>=1; i--) {
 			ArrayList<Integer> tmpList = new ArrayList<>();
 			
