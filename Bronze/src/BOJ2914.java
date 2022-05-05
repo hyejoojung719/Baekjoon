@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 // 저작권
-// 알고리즘 : 구현, 수학, 사칙연산
+// 알고리즘 : 구현, 수학, 사칙연산..
 public class BOJ2914 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
