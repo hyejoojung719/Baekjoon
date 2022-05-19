@@ -8,11 +8,6 @@ public class BOJ3059 {
 		
 		int tc = sc.nextInt();
 		
-		int sum = 0;
-		for(int i=65; i<=90; i++) {
-			sum += i;
-		}
-		
 		for(int i=0; i<tc; i++) {
 			String str = sc.next();
 			
@@ -22,18 +17,14 @@ public class BOJ3059 {
 				if(!check[str.charAt(j)-'A']) check[str.charAt(j)-'A'] = true;
 			}
 			
-			int ans = 0;
-			int cnt = 0;
+			int sum = 0;
 			
 			for(int j=0; j<check.length; j++) {
 				if(!check[j]) {
-					ans+=j;
-					cnt++;
+					sum += (j+65);
 				}
 			}
-			
-			ans+=cnt*65;
-			System.out.println(ans);
+			System.out.println(sum);
 		}
 	}
 }
