@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-// 더하기
+// 더하기 
 // 알고리즘 : 수학, 구현, 문자열, 사직연산, 파싱
 public class BOJ10822 {
 	public static void main(String[] args) {
